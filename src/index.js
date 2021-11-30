@@ -155,3 +155,11 @@ formField.addEventListener('select', function(event) {
 	let selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
 	console.log(`User selected: ${selection}`);
 })
+
+// Copy
+formField.addEventListener('copy', function(event) {
+	let selection = document.getSelection();
+	console.log(selection);
+	event.clipboardData.setData('text/plain', selection.toString().toUpperCase());
+	event.preventDefault();
+})
