@@ -35,9 +35,14 @@ const thirdImg = document.querySelector('.content-destination img');
 const thirdTitle = document.querySelector('.content-destination h2');
 const thirdPara = document.querySelector('.content-destination p');
 
+// Form
+const form = document.querySelector('form');
+const formField = document.querySelector('input');
+
 // Destinations
 const destinations = document.querySelectorAll('.destination');
 const destinationsArray = Array.from(destinations);
+const destinationSection = document.querySelector('.content-destination');
 
 // Destination: Fun in the Sun
 const funInTheSun = destinationsArray[0];
@@ -91,6 +96,14 @@ document.addEventListener('keydown', function(event) {
 	}
 })
 
+// Focus In & Focus Out
+formField.addEventListener('focusin', function(event) {
+	formField.style.background = 'lightGrey';
+})
+formField.addEventListener('focusout', function(event) {
+	formField.style.background = '';
+})
+
 // Double Click
 let secretLink = document.createElement('a');
 secretLink.classList.add('nav-link');
@@ -135,4 +148,10 @@ islandGetaway.addEventListener('mouseenter', function(event) {
 })
 islandGetaway.addEventListener('mouseout', function(event) {
 	islandGetaway.style.color = 'black';
+})
+
+// Select
+formField.addEventListener('select', function(event) {
+	let selection = event.target.value.substring(event.target.selectionStart, event.target.selectionEnd);
+	console.log(`User selected: ${selection}`);
 })
